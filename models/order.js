@@ -40,6 +40,11 @@ orderSchema.virtual('orderId').get(function () {
   return this.id.slice(-6).toUpperCase();
 });
 
+orderSchema.virtual('orderDate').get(function() {
+  console.log(this.createdAt)
+  return this.createdAt.toLocaleDateString()
+})
+
 // statics are callable on the model, not an instance (document)
 orderSchema.statics.getCart = async function (userId) {
   // 'this' is bound to the model (don't use an arrow function)
