@@ -10,17 +10,20 @@ import * as ordersAPI from '../../utilities/orders-api';
 
 
 export default function OrderHistoryPage({ user, setUser }) {
-  const [cart, setCart] = useState([]);
+  const [orderHistory, setOrderHistory] = useState([]);
+  // state for setting active order (show detail on right column)
+  const [activeOrder, setActiveOrder] = useState('');
+  // 
 
 
 
   useEffect(function() {
     // Load cart (a cart is the unpaid order for the logged in user)
-    async function getCart() {
-      const cart = await ordersAPI.getCart();
-      setCart(cart);
+    async function getOrderHistory() {
+      const orderHistory = await ordersAPI.getOrders();
+      setOrderHistory(orderHistory);
     }
-    getCart();
+    getOrderHistory();
   }, []);
 
 
@@ -32,8 +35,10 @@ export default function OrderHistoryPage({ user, setUser }) {
         <Link to="/orders/new" className="button btn-sm">NEW ORDER</Link>
         <UserLogOut user={user} setUser={setUser} />
       </aside>
-      <OrderList order={cart}/>
-      <OrderDetail />
+      <OrderList orderHistory={orderHistory} activeOrder={activeOrder} setActiveOrder={setActiveOrder}/>
+      <OrderDetail order={activeOrder}/>
     </main>
   );
 }
+
+

@@ -1,8 +1,8 @@
 import './OrderListItem.css';
 
-export default function OrderListItem({ order }) {
+export default function OrderListItem({ order, setActiveOrder }) {
   return (
-    <div className="OrderListItem">
+    <div className="OrderListItem" >
       <div>
         <div>Order Id: 
           <span class="smaller">{order.orderId}</span>
@@ -10,17 +10,12 @@ export default function OrderListItem({ order }) {
         <div class="smaller">{order.orderDate}</div>
       </div>
       <div class="align-rt">
-        <div>${order.orderTotal}</div>
-        <div class="smaller">{order.totalQty}</div>
+        <div>${order.orderTotal.toFixed(2)}</div>
+        <div class="smaller">{order.totalQty} Items</div>
       </div>
     </div>
   );
 }
 
 
-
-// order id: 
-// total cost:
-// order date:
-// # items:
 
