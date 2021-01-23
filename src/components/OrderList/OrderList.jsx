@@ -3,13 +3,12 @@ import OrderListItem from '../OrderListItem/OrderListItem';
 
 export default function OrderList({ orderHistory, setActiveOrder, activeOrder}) {
   const orders = orderHistory.map(order =>
-    <div onClick={() => setActiveOrder(order)}>
+    <span onClick={() => setActiveOrder(order)} className={order === activeOrder ? 'active' : ''}>
       <OrderListItem
       key={order._id}
       order={order}
-      className={order === activeOrder ? 'active' : ''}
       />
-    </div>
+    </span>
 
   )
 

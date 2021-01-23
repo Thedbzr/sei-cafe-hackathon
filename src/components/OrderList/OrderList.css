@@ -6,3 +6,9 @@
   padding: 3vmin;
   overflow-y: scroll;
 }
+
+.OrderList span.active {
+  color: var(--text-dark);
+  background-color: var(--tan-1);
+  border: .1vmin solid blue;
+}
