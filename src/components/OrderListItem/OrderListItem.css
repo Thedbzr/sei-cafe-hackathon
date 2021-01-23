@@ -38,3 +38,9 @@
   color: var(--text-light);
 }
 
+
+
+.OrderListItem.selected {
+    border-color: var(--orange);
+  border-width: .2vmin;
+}

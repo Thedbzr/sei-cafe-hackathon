@@ -1,8 +1,8 @@
 import './OrderListItem.css';
 
-export default function OrderListItem({ order, setActiveOrder }) {
+export default function OrderListItem({ order, setActiveOrder, activeOrder }) {
   return (
-    <div className="OrderListItem" >
+    <div onClick={() => setActiveOrder(order)} className={order === activeOrder ? 'OrderListItem selected' : 'OrderListItem'} >
       <div>
         <div>Order Id: 
           <span class="smaller">{order.orderId}</span>
